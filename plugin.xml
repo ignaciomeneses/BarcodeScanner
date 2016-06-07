@@ -8,7 +8,7 @@
 	</js-module>
 	
 	<platform name="android">
-		<source-file src="src/build-extras.gradle" target-dir="src/.." />
+		<source-file src="build-extras.gradle" target-dir="src/.." />
 		<source-file src="src/android/com/phonegap/plugins/barcodescanner/BarcodeScanner.java" target-dir="src/com/phonegap/plugins/barcodescanner" />
 	
 		<config-file parent="/*" target="res/xml/config.xml">
