@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-verticalbarcodescanner",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "cordova": {
     "id": "cordova-plugin-barcodescanner",
     "platforms": [
@@ -13,5 +13,13 @@
   ],
   "author": "JIM",
   "license": "ISC",
-  "description": ""
+  "description": "Vertical barcode scanner",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ignaciomeneses/BarcodeScanner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ignaciomeneses/BarcodeScanner/issues"
+  },
+  "homepage": "https://github.com/ignaciomeneses/BarcodeScanner#readme"
 }
