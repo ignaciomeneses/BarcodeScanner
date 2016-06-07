@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-barcodescanner" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	
+	<name>BarcodeScanner</name>
+	
+	<js-module name="BarcodeScanner" src="www/BarcodeScanner.js">
+		<clobbers target="cordova.plugins.barcodeScanner" />
+	</js-module>
+	
+	<platform name="android">
+	
+		<source-file src="src/android/com/phonegap/plugins/barcodescanner/BarcodeScanner.java" target-dir="src/com/phonegap/plugins/barcodescanner" />
+	
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="BarcodeScanner">
+				<param name="android-package" value="com.phonegap.plugins.barcodescanner.BarcodeScanner" />
+			</feature>
+		</config-file>
+		
+		<config-file parent="/*" target="AndroidManifest.xml" parent="/manifest/application">
+			<activity android:clearTaskOnLaunch="true" android:configChanges="orientation|keyboardHidden" android:name="com.journeyapps.barcodescanner.CaptureActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen">
+				<intent-filter>
+					<action android:name="com.google.zxing.client.android.SCAN" />
+					<category android:name="android.intent.category.DEFAULT" />
+				</intent-filter>
+			</activity>
+		</config-file>
+		
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.FLASHLIGHT" />
+            <!-- Not required to allow users to work around this -->
+            <uses-feature android:name="android.hardware.camera" android:required="false" />
+        </config-file>
+		
+		<framework src="src/android/build.gradle" custom="true" type="gradleReference" />	
+
+		<source-file src="src/android/res-orig/raw/zxing_beep.ogg" target-dir="res/raw"/>
+        <source-file src="src/android/res-orig/values/zxing_strings.xml" target-dir="res/values"/>
+        <source-file src="src/android/res-orig/values-ar/zxing_strings.xml" target-dir="res/values-ar"/>
+        <source-file src="src/android/res-orig/values-bg/zxing_strings.xml" target-dir="res/values-bg"/>
+        <source-file src="src/android/res-orig/values-ca/zxing_strings.xml" target-dir="res/values-ca"/>
+        <source-file src="src/android/res-orig/values-cs/zxing_strings.xml" target-dir="res/values-cs"/>
+        <source-file src="src/android/res-orig/values-da/zxing_strings.xml" target-dir="res/values-da"/>
+        <source-file src="src/android/res-orig/values-de/zxing_strings.xml" target-dir="res/values-de"/>
+        <source-file src="src/android/res-orig/values-el/zxing_strings.xml" target-dir="res/values-el"/>
+        <source-file src="src/android/res-orig/values-es/zxing_strings.xml" target-dir="res/values-es"/>
+        <source-file src="src/android/res-orig/values-eu/zxing_strings.xml" target-dir="res/values-eu"/>
+        <source-file src="src/android/res-orig/values-fi/zxing_strings.xml" target-dir="res/values-fi"/>
+        <source-file src="src/android/res-orig/values-fr/zxing_strings.xml" target-dir="res/values-fr"/>
+        <source-file src="src/android/res-orig/values-he/zxing_strings.xml" target-dir="res/values-he"/>
+        <source-file src="src/android/res-orig/values-hi/zxing_strings.xml" target-dir="res/values-hi"/>
+        <source-file src="src/android/res-orig/values-hu/zxing_strings.xml" target-dir="res/values-hu"/>
+        <source-file src="src/android/res-orig/values-id/zxing_strings.xml" target-dir="res/values-id"/>
+        <source-file src="src/android/res-orig/values-it/zxing_strings.xml" target-dir="res/values-it"/>
+        <source-file src="src/android/res-orig/values-ja/zxing_strings.xml" target-dir="res/values-ja"/>
+        <source-file src="src/android/res-orig/values-ko/zxing_strings.xml" target-dir="res/values-ko"/>
+        <source-file src="src/android/res-orig/values-nl/zxing_strings.xml" target-dir="res/values-nl"/>
+        <source-file src="src/android/res-orig/values-pl/zxing_strings.xml" target-dir="res/values-pl"/>
+        <source-file src="src/android/res-orig/values-pt/zxing_strings.xml" target-dir="res/values-pt"/>
+        <source-file src="src/android/res-orig/values-ru/zxing_strings.xml" target-dir="res/values-ru"/>
+        <source-file src="src/android/res-orig/values-sk/zxing_strings.xml" target-dir="res/values-sk"/>
+        <source-file src="src/android/res-orig/values-sl/zxing_strings.xml" target-dir="res/values-sl"/>
+        <source-file src="src/android/res-orig/values-sv/zxing_strings.xml" target-dir="res/values-sv"/>
+        <source-file src="src/android/res-orig/values-tr/zxing_strings.xml" target-dir="res/values-tr"/>
+        <source-file src="src/android/res-orig/values-zh-rCN/zxing_strings.xml" target-dir="res/values-zh-rCN"/>
+        <source-file src="src/android/res-orig/values-zh-rTW/zxing_strings.xml" target-dir="res/values-zh-rTW"/>
+		
+		<source-file src="src/android/res/layout/zxing_barcode_scanner.xml" target-dir="res/layout"/>
+		<source-file src="src/android/res/layout/zxing_capture.xml" target-dir="res/layout"/>
+		<source-file src="src/android/res/values/zxing_attrs.xml" target-dir="res/values"/>
+		<source-file src="src/android/res/values/zxing_colors.xml" target-dir="res/values"/>
+		<source-file src="src/android/res/values/zxing_ids.xml" target-dir="res/values"/>
+		<source-file src="src/android/res/values/zxing_themes.xml" target-dir="res/values"/>
+		<source-file src="src/android/res/values-v11/zxing_themes.xml" target-dir="res/values-v11"/>
+		
+		<source-file
+            src="src/android/com/google/zxing/FakeR.java"
+            target-dir="src/com/google/zxing/" />
+		
+		<source-file
+            src="src/android/com/google/zxing/integration/android/IntentIntegrator.java"
+            target-dir="src/com/google/zxing/integration/android/" />
+			
+		<source-file
+            src="src/android/com/google/zxing/integration/android/IntentResult.java"
+            target-dir="src/com/google/zxing/integration/android/" />
+			
+		<source-file
+            src="src/android/com/google/zxing/client/android/AmbientLightManager.java"
+            target-dir="src/com/google/zxing/client/android/" />
+		
+		<source-file
+            src="src/android/com/google/zxing/client/android/BeepManager.java"
+            target-dir="src/com/google/zxing/client/android/" />
+			
+		<source-file
+            src="src/android/com/google/zxing/client/android/DecodeFormatManager.java"
+            target-dir="src/com/google/zxing/client/android/" />
+			
+		<source-file
+            src="src/android/com/google/zxing/client/android/DecodeHintManager.java"
+            target-dir="src/com/google/zxing/client/android/" />
+			
+		<source-file
+            src="src/android/com/google/zxing/client/android/InactivityTimer.java"
+            target-dir="src/com/google/zxing/client/android/" />
+		
+		<source-file
+            src="src/android/com/google/zxing/client/android/Intents.java"
+            target-dir="src/com/google/zxing/client/android/" />
+		
+		<source-file
+            src="src/android/com/google/zxing/client/android/camera/CameraConfigurationUtils.java"
+            target-dir="src/com/google/zxing/client/android/camera/" />
+		
+		<source-file
+            src="src/android/com/google/zxing/client/android/camera/open/OpenCameraInterface.java"
+            target-dir="src/com/google/zxing/client/android/camera/open/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/BarcodeCallback.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/BarcodeEncoder.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/BarcodeResult.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/BarcodeView.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/CameraPreview.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/CaptureActivity.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/CaptureManager.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/CompoundBarcodeView.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/Decoder.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/DecoderFactory.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/DecoderResultPointCallback.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/DecoderThread.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/DefaultDecoderFactory.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/RotationCallback.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/RotationListener.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/Size.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/SourceData.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/Util.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/ViewfinderView.java"
+            target-dir="src/com/journeyapps/barcodescanner/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/camera/AutoFocusManager.java"
+            target-dir="src/com/journeyapps/barcodescanner/camera/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/camera/CameraInstance.java"
+            target-dir="src/com/journeyapps/barcodescanner/camera/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/camera/CameraManager.java"
+            target-dir="src/com/journeyapps/barcodescanner/camera/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/camera/CameraSettings.java"
+            target-dir="src/com/journeyapps/barcodescanner/camera/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/camera/CameraSurface.java"
+            target-dir="src/com/journeyapps/barcodescanner/camera/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/camera/CameraThread.java"
+            target-dir="src/com/journeyapps/barcodescanner/camera/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/camera/CenterCropStrategy.java"
+            target-dir="src/com/journeyapps/barcodescanner/camera/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/camera/DisplayConfiguration.java"
+            target-dir="src/com/journeyapps/barcodescanner/camera/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/camera/FitCenterStrategy.java"
+            target-dir="src/com/journeyapps/barcodescanner/camera/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/camera/FitXYStrategy.java"
+            target-dir="src/com/journeyapps/barcodescanner/camera/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/camera/LegacyPreviewScalingStrategy.java"
+            target-dir="src/com/journeyapps/barcodescanner/camera/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/camera/PreviewCallback.java"
+            target-dir="src/com/journeyapps/barcodescanner/camera/" />
+		
+		<source-file
+            src="src/android/com/journeyapps/barcodescanner/camera/PreviewScalingStrategy.java"
+            target-dir="src/com/journeyapps/barcodescanner/camera/" />
+	
+	</platform>
+</plugin>
