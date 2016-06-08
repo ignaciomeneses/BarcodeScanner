@@ -63,12 +63,6 @@ public class CaptureActivity extends Activity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        capture.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
-
-
-    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         return barcodeScannerView.onKeyDown(keyCode, event) || super.onKeyDown(keyCode, event);
     }
